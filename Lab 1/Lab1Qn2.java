@@ -19,14 +19,24 @@ You are required to:
 - Name each method m1(), m2(), m3() and m4() respectively.
 */
 import java.util.*;
-
 public class Lab1Qn2 {
+    public static ArrayList<String> permutation(String str) {
+        ArrayList<String> listofperms = new ArrayList<>();
+        return permutation("", str, listofperms);
+    }
+    private static ArrayList<String> permutation(String start, String end, ArrayList<String> listofperms) {
+        if (end.isEmpty() && !listofperms.contains(start)) listofperms.add(start);
+        else {
+            for (int i = 0; i < end.length(); i++)
+                permutation(start + end.charAt(i), end.substring(0, i) + end.substring(i+1), listofperms);
+        }
+        return listofperms;
+    }
 //    For this we want to generate all permutations of one string and see if the other string is within the list of permutations
 //    Therefore the time complexity should be O(n!) since by math, there are n! different permutations of string length n
 //    (Without accounting for repeated characters)
-//    TODO: finish this maybe
     public static boolean m1(String s1, String s2) {
-        return s1 == s2;
+        return permutation(s1).contains(s2);
     }
 
 //    For this we want to iterate through each character of s1 and check if s2 contains it, making sure the character in s2
@@ -74,26 +84,11 @@ public class Lab1Qn2 {
     }
 
     public static void main(String[] args) {
-        System.out.println(m4("teeshirt", "teashirt"));
-    }
-}
-
-class AllPermutations {
-    public static void main(String[] args) {
-        String s = "tee"; // Example string
-        permutation(s);
-        }
-
-    public static void permutation(String str) {
-        permutation("", str);
-    }
-
-    private static void permutation(String prefix, String str) {
-        int n = str.length();
-        if (n == 0) System.out.println(prefix);
-        else {
-            for (int i = 0; i < n; i++)
-                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
-        }
+        System.out.println(m1("listen", "silent"));
+        System.out.println(m2("listen", "silent"));
+        System.out.println(m3("listen", "silent"));
+        System.out.println(m4("listen", "silent"));
+        System.out.println(m1("cittycat", "kittycat"));
+        System.out.println(m2("cillycat", "kittycat"));
     }
 }
