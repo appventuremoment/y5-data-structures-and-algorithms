@@ -53,6 +53,5 @@ public class FourColor {
         boolean result = m.explore(0, Color.RED);
         System.out.println(result);
         m.printMap();
-
     }
 }

@@ -1,5 +1,3 @@
-
-
 public interface DequeADT<T>
 {
 
@@ -12,4 +10,3 @@ public interface DequeADT<T>
    public T removeFirst();
    public T removeLast();
 }
-

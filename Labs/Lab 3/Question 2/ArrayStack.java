@@ -1,5 +1,3 @@
-
-
 import java.util.*;
 
 class ArrayStack <E> implements StackADT <E> {

@@ -36,4 +36,3 @@ public class MinStack<E extends Comparable<E>>{
 	public boolean isEmpty(){return arr.isEmpty();}
 	public int size(){return arr.size();}
 }
-
